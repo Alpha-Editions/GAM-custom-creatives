@@ -68,7 +68,7 @@
             prestitialContent.style.width = '100%';
             prestitialContent.style.height = '100%';
             prestitialContent.style.textAlign = 'center';
-            prestitialContent.style.padding = '2rem 4rem 0 4rem';
+            prestitialContent.style.padding = '2rem 1rem 0 1rem';
 
             const closeButton = document.createElement('button');
             closeButton.style.width = '40px';
@@ -90,14 +90,16 @@
             logo.style.maxWidth = '100%';
             logo.style.height = 'auto';
             logo.style.margin = '0 auto 4rem auto';
+            logo.style.padding = '0 4rem';
             logo.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
 
             const quote = document.createElement('span');
             quote.style.display = 'block';
             quote.style.fontWeight = '700';
             quote.style.color = 'white';
+            quote.style.padding = '0 3rem';
             quote.style.fontFamily = "'Special Elite', cursive";
-            if (window.matchMedia("max-width: 1200px").matches) {
+            if (window.matchMedia('(max-width: 1200px)').matches) {
                 quote.style.fontSize = 'calc(1.375rem + 1.5vw)';
             }
             else {
@@ -108,6 +110,7 @@
             middleWrapper.style.position = 'absolute';
             middleWrapper.style.top = '50%';
             middleWrapper.style.left = '50%';
+            middleWrapper.style.width = '100%';
             middleWrapper.style.transform = 'translate(-50%, -50%)';
 
             const cta = document.createElement('button');
@@ -127,7 +130,7 @@
             footer.style.left = '0';
             footer.style.width = '100%';
             footer.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
-            footer.innerHTML = '<div style="border-bottom: 2px solid white; padding: 0 1rem; text-align: left;"> <img src="footer2.gif" alt="" style="width: 200px; position: relative; left: -1rem;"> <span style="float: right; padding: .5rem 0; display: flex; align-items: end; height: 250px;"><span style="color: gray;">&copy;2022 Jack Daniel\'s</span></div> </div><div style="padding: .5rem 1rem; text-align: left;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; font-weight: 700;">www.apolafste.ypefthina.gr</a> <span style="float: right; color: white !important; font-weight: 700;">Απολαύστε υπεύθυνα</span> </div>';
+            footer.innerHTML = '<div style="border-bottom: 2px solid white; padding: 0 1rem; text-align: left;"> <img src="footer2.gif" alt="" style="height: 190px; position: relative; left: -1rem;"> <span style="float: right; padding: .5rem 0; display: flex; align-items: end; height: 190px;"><span style="color: gray;">&copy;2022 Jack Daniel\'s</span></div> </div><div style="padding: .5rem 1rem; text-align: left;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; font-weight: 700;">www.apolafste.ypefthina.gr</a> <span style="float: right; color: white !important; font-weight: 700;">Απολαύστε υπεύθυνα</span> </div>';
 
             const head = document.querySelector('head');
             head.appendChild(rebootCSS);
