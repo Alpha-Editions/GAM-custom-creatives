@@ -106,18 +106,10 @@
             quote.style.position = 'relative';
             quote.style.top = '20%';
             // quote.style.fontFamily = "'Special Elite', cursive";
-            if (window.matchMedia('(max-width: 1200px)').matches) {
-                quote.style.fontSize = 'calc(1.375rem + 1.5vw)';
-            }
-            else {
-                quote.style.fontSize = '4rem';
-            }
 
             const middleWrapper = document.createElement('div');
             middleWrapper.style.position = 'absolute';
             middleWrapper.style.top = '50%';
-            middleWrapper.style.right = '25%';
-            middleWrapper.style.width = '75%';
             // middleWrapper.style.transform = 'translate(-50%, -50%)';
             middleWrapper.style.padding = '0 1rem';
 
@@ -138,6 +130,24 @@
             footer.style.width = '100%';
             footer.style.fontSize = '.8rem';
             footer.innerHTML = '<span style="display: block; border-bottom: 2px solid white; padding: .5rem 1rem; color: gray; text-align: left;">&copy;2022 Jack Daniel\'s</span></div><div style="padding: .5rem 1rem;font-weight: 700; display: flex;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; flex: 1 0 0%; text-align: left;">www.apolafste.ypefthina.gr</a> <span style="color: white; flex: 1 0 0%; text-align: right;">Απολαύστε υπεύθυνα</span> </div>';
+
+            if (window.matchMedia('(max-width: 1200px)').matches) {
+                quote.style.fontSize = 'calc(1.375rem + 1.5vw)';
+                middleWrapper.style.right = '25%';
+                middleWrapper.style.width = '75%';
+            }
+            else {
+                quote.style.fontSize = '4rem';
+                middleWrapper.style.left = '30%';
+                middleWrapper.style.width = '70%';
+                quote.style.left = '30%';
+                quote.style.width = '70%';
+                cta.style.fontSize = '1.5rem';
+            }
+
+            for (let i = 1; i <= 31; i++) {
+                console.log(i % 7);
+            }
 
             const head = document.querySelector('head');
             head.appendChild(rebootCSS);
