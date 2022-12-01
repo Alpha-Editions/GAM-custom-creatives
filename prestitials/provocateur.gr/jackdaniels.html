@@ -8,13 +8,34 @@
     <body>
         <script>
             const quotes = [
-                'It\'s Your Story. Be the one holding the pen',
-                'Make your own labels peel off the rest',
-                'Good times are rare. Treat them accordingly',
-                'Dance like everybody\'s watching',
-                'There\'s no present like the present',
-                'There are labels we\'re given and those we make ourselves',
-                'As far as we know, today only happens once'
+                [
+                    'It\'s Your Story',
+                    'Be the one holding the pen'
+                ],
+                [
+                    'Make your own labels',
+                    'Peel off the rest'
+                ],
+                [
+                    'Good times are rare',
+                    'Treat them accordingly'
+                ],
+                [
+                    'Dance',
+                    'like everybody\'s watching'
+                ],
+                [
+                    'There\'s no present',
+                    'like the present'
+                ],
+                [
+                    'There are labels we\'re given',
+                    'and those we make ourselves'
+                ],
+                [
+                    'As far as we know,',
+                    'today only happens once'
+                ]
             ];
 
             const rebootCSS = document.createElement('link');
@@ -29,6 +50,9 @@
 
             const animateExpand = document.createElement('style');
             animateExpand.innerText = '@-webkit-keyframes expand{from{transform:scale(1)}to{transform:scale(' + screenDiagonal + ')}}@keyframes expand{from{transform:scale(1)}to{transform:scale(' + screenDiagonal + ')}}.animate__expand{-webkit-animation-name:expand;animation-name:expand}';
+
+            const customFont = document.createElement('style');
+            customFont.innerText = '@font-face{font-family:jdfont;src:url("jdfont.otf")}';
 
             // const googleFonts1 = document.createElement('link');
             // googleFonts1.rel = 'preconnect';
@@ -55,7 +79,7 @@
 
             const prestitial = document.createElement('div');
             prestitial.classList.add('animate__animated', 'animate__expand');
-            prestitial.style.backgroundColor = '#000000';
+            prestitial.style.backgroundColor = '#040404';
             prestitial.style.width = '1px';
             prestitial.style.height = '1px';
             prestitial.style.borderRadius = '50%';
@@ -70,11 +94,12 @@
             prestitialContent.style.textAlign = 'center';
 
             const bgImg = document.createElement('img');
-            bgImg.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/footer2.gif';
+            bgImg.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/bg-bottle.webp';
             bgImg.style.position = 'absolute';
             bgImg.style.top = '0';
-            bgImg.style.left = '0';
+            bgImg.style.right = '0';
             bgImg.style.height = 'calc(100% - 37.19px)';
+            bgImg.classList.add('animate__animated', 'animate__fadeInRight');
 
             const closeButton = document.createElement('button');
             closeButton.style.width = '40px';
@@ -89,37 +114,43 @@
             closeButton.onclick = function() {overlay.remove()};
 
             const logo = document.createElement('img');
-            logo.src = 'Jack Daniels logo.png';
+            logo.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/logo.webp';
             logo.alt = 'Jack Daniel\'s Old No.7 Brand';
             logo.lang = 'en';
             logo.style.display = 'block';
             logo.style.maxWidth = '100%';
             logo.style.height = 'auto';
-            logo.style.margin = '0 auto 3.5rem auto';
-            logo.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
+            logo.style.margin = '0 auto 1rem auto';
+            logo.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-3s');
 
-            const quote = document.createElement('span');
-            quote.style.display = 'block';
-            quote.style.fontWeight = '700';
-            quote.style.color = 'white';
-            quote.style.backgroundColor = 'black';
-            quote.style.position = 'relative';
-            quote.style.top = '20%';
-            // quote.style.fontFamily = "'Special Elite', cursive";
+            const quote1 = document.createElement('span');
+            quote1.style.display = 'block';
+            quote1.style.fontWeight = '700';
+            quote1.style.color = 'white';
+            quote1.style.fontFamily = 'jdfont';
+            quote1.innerText = getTodaysScheduledQuote(0);
+            quote1.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
+            
+            const quote2 = document.createElement('span');
+            quote2.style.display = 'block';
+            quote2.style.fontWeight = '700';
+            quote2.style.color = 'white';
+            quote2.style.marginBottom = '3rem';
+            quote2.style.fontFamily = 'jdfont';
+            quote2.innerText = getTodaysScheduledQuote(1);
+            quote2.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-2s');
 
-            const middleWrapper = document.createElement('div');
-            middleWrapper.style.position = 'absolute';
-            middleWrapper.style.top = '50%';
-            // middleWrapper.style.transform = 'translate(-50%, -50%)';
-            middleWrapper.style.padding = '0 1rem';
+            const content = document.createElement('div');
+            content.style.position = 'absolute';
+            content.style.padding = '0 1rem';
 
             const cta = document.createElement('button');
-            cta.classList.add('btn', 'animate__animated', 'animate__fadeIn', 'animate__delay-2s');
+            cta.classList.add('btn', 'animate__animated', 'animate__fadeIn', 'animate__delay-4s');
             cta.innerText = 'Ανακαλύψτε το εδώ';
             cta.style.border = 'none'
             cta.style.color = 'black';
             cta.style.backgroundColor = 'white';
-            cta.style.padding = '.5rem 2rem';
+            cta.style.padding = '.5rem 1rem';
             cta.style.borderRadius = '50rem';
             // cta.style.fontSize = '1.5rem';
 
@@ -132,17 +163,28 @@
             footer.innerHTML = '<span style="display: block; border-bottom: 2px solid white; padding: .5rem 1rem; color: gray; text-align: left;">&copy;2022 Jack Daniel\'s</span></div><div style="padding: .5rem 1rem;font-weight: 700; display: flex;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; flex: 1 0 0%; text-align: left;">www.apolafste.ypefthina.gr</a> <span style="color: white; flex: 1 0 0%; text-align: right;">Απολαύστε υπεύθυνα</span> </div>';
 
             if (window.matchMedia('(max-width: 1200px)').matches) {
-                quote.style.fontSize = 'calc(1.375rem + 1.5vw)';
-                middleWrapper.style.right = '25%';
-                middleWrapper.style.width = '75%';
+                content.style.width = 'calc(100% - 90px)';
+                content.style.bottom = '80px';
+                logo.style.width = '160px';
+                quote1.style.fontSize = '1.8rem';
+                quote2.style.fontSize = '1.8rem';
+                // quote.style.fontSize = 'calc(1.375rem + 1.5vw)';
+                // middleWrapper.style.right = '25%';
+                // middleWrapper.style.width = '75%';
             }
             else {
-                quote.style.fontSize = '4rem';
-                middleWrapper.style.left = '30%';
-                middleWrapper.style.width = '70%';
-                quote.style.left = '30%';
-                quote.style.width = '70%';
-                cta.style.fontSize = '1.5rem';
+                content.style.top = '50%';
+                content.style.transform = 'translateY(-50%)';
+                content.style.width = 'calc(100% - 410px)';
+                logo.style.width = '200px';
+                quote1.style.fontSize = '8rem';
+                quote2.style.fontSize = '8rem';
+                // quote.style.fontSize = '4rem';
+                // middleWrapper.style.left = '30%';
+                // middleWrapper.style.width = '70%';
+                // quote.style.left = '30%';
+                // quote.style.width = '70%';
+                // cta.style.fontSize = '1.5rem';
             }
 
             for (let i = 1; i <= 31; i++) {
@@ -153,6 +195,7 @@
             head.appendChild(rebootCSS);
             head.appendChild(animateCSS);
             head.appendChild(animateExpand);
+            head.appendChild(customFont);
             // head.appendChild(googleFonts1);
             // head.appendChild(googleFonts2);
             // head.appendChild(googleFonts3);
@@ -163,24 +206,27 @@
                 prestitialContent.appendChild(bgImg);
                 prestitialContent.appendChild(closeButton);
                 prestitialContent.appendChild(footer);
-                prestitialContent.appendChild(quote);
-                setTimeout(function() {
-                    const speed = 90;
-                    const todaysQuote = getTodaysScheduledQuote();
-                    let i = 0;
-                    quote.style.padding = '1rem';
-                    setInterval(function() {
-                        if (i < todaysQuote.length) {
-                            quote.innerHTML += todaysQuote.charAt(i);
-                            i++;
-                        }
-                    }, speed);
-                    setTimeout(function() {
-                        prestitialContent.appendChild(middleWrapper);
-                        middleWrapper.appendChild(logo);
-                        middleWrapper.appendChild(cta);
-                    }, (todaysQuote.length) * speed);
-                }, 5000);
+                prestitialContent.appendChild(content);
+                content.appendChild(quote1);
+                content.appendChild(quote2);
+                content.appendChild(logo);
+                content.appendChild(cta);
+                // setTimeout(function() {
+                //     const speed = 90;
+                //     const todaysQuote = getTodaysScheduledQuote();
+                //     let i = 0;
+                //     setInterval(function() {
+                //         if (i < todaysQuote.length) {
+                //             quote.innerHTML += todaysQuote.charAt(i);
+                //             i++;
+                //         }
+                //     }, speed);
+                //     setTimeout(function() {
+                //         prestitialContent.appendChild(middleWrapper);
+                //         middleWrapper.appendChild(logo);
+                //         middleWrapper.appendChild(cta);
+                //     }, (todaysQuote.length) * speed);
+                // }, 5000);
             });
 
             // setTimeout(function() {overlay.remove()}, 15000);
@@ -189,8 +235,8 @@
                 return Math.ceil(Math.hypot(window.innerWidth, window.innerHeight));
             }
 
-            function getTodaysScheduledQuote() {
-                return quotes[(new Date()).getDay() % 7];
+            function getTodaysScheduledQuote(part) {
+                return quotes[(new Date()).getDay() % 7][part];
             };
 
             // function typeWriter() {
