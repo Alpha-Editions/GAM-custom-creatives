@@ -4,8 +4,10 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>Bootstrap demo</title>
+        <link rel="preload" as="image" href="https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/bg-bottle.webp">
     </head>
     <body>
+        <link rel="preload" as="image" href="https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/bg-bottle.webp">
         <script>
             const quotes = [
                 [
@@ -52,19 +54,7 @@
             animateExpand.innerText = '@-webkit-keyframes expand{from{transform:scale(1)}to{transform:scale(' + screenDiagonal + ')}}@keyframes expand{from{transform:scale(1)}to{transform:scale(' + screenDiagonal + ')}}.animate__expand{-webkit-animation-name:expand;animation-name:expand}';
 
             const customFont = document.createElement('style');
-            customFont.innerText = '@font-face{font-family:jdfont;src:url("jdfont.otf")}';
-
-            // const googleFonts1 = document.createElement('link');
-            // googleFonts1.rel = 'preconnect';
-            // googleFonts1.href = 'https://fonts.googleapis.com';
-
-            // const googleFonts2 = document.createElement('link');
-            // googleFonts2.rel = 'preconnect';
-            // googleFonts2.href = 'https://fonts.gstatic.com';
-
-            // const googleFonts3 = document.createElement('link');
-            // googleFonts3.rel = 'stylesheet';
-            // googleFonts3.href = 'https://fonts.googleapis.com/css2?family=Special+Elite&display=swap';
+            customFont.innerText = '@font-face{font-family:jdfont;src:url("https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/jdfont.otf")}';
 
             const overlay = document.createElement('div');
             overlay.style.display = 'flex';
@@ -73,8 +63,8 @@
             overlay.style.position = 'fixed';
             overlay.style.top = '0';
             overlay.style.left = '0';
-            overlay.style.width = window.parent.innerWidth + 'px';
-            overlay.style.height = window.parent.innerHeight + 'px';
+            overlay.style.width = window.parent.parent.innerWidth + 'px';
+            overlay.style.height = window.parent.parent.innerHeight + 'px';
             overlay.style.zIndex = '99999';
 
             const prestitial = document.createElement('div');
@@ -118,7 +108,7 @@
             logo.alt = 'Jack Daniel\'s Old No.7 Brand';
             logo.lang = 'en';
             logo.style.display = 'block';
-            logo.style.maxWidth = '100%';
+            logo.style.width = '100px';
             logo.style.height = 'auto';
             logo.style.margin = '0 auto 1rem auto';
             logo.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-3s');
@@ -128,6 +118,7 @@
             quote1.style.fontWeight = '700';
             quote1.style.color = 'white';
             quote1.style.fontFamily = 'jdfont';
+            quote1.style.fontSize = '6vw';
             quote1.innerText = getTodaysScheduledQuote(0);
             quote1.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
             
@@ -137,6 +128,7 @@
             quote2.style.color = 'white';
             quote2.style.marginBottom = '3rem';
             quote2.style.fontFamily = 'jdfont';
+            quote2.style.fontSize = '6vw';
             quote2.innerText = getTodaysScheduledQuote(1);
             quote2.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-2s');
 
@@ -146,13 +138,12 @@
 
             const cta = document.createElement('button');
             cta.classList.add('btn', 'animate__animated', 'animate__fadeIn', 'animate__delay-4s');
-            cta.innerText = 'Ανακαλύψτε το εδώ';
+            cta.innerText = 'Ανακαλύψτε το';
             cta.style.border = 'none'
             cta.style.color = 'black';
             cta.style.backgroundColor = 'white';
             cta.style.padding = '.5rem 1rem';
             cta.style.borderRadius = '50rem';
-            // cta.style.fontSize = '1.5rem';
 
             const footer = document.createElement('div');
             footer.style.position = 'absolute';
@@ -162,33 +153,16 @@
             footer.style.fontSize = '.8rem';
             footer.innerHTML = '<span style="display: block; border-bottom: 2px solid white; padding: .5rem 1rem; color: gray; text-align: left;">&copy;2022 Jack Daniel\'s</span></div><div style="padding: .5rem 1rem;font-weight: 700; display: flex;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; flex: 1 0 0%; text-align: left;">www.apolafste.ypefthina.gr</a> <span style="color: white; flex: 1 0 0%; text-align: right;">Απολαύστε υπεύθυνα</span> </div>';
 
-            if (window.matchMedia('(max-width: 1200px)').matches) {
-                content.style.width = 'calc(100% - 90px)';
+            if (window.parent.matchMedia('(max-width: 1200px)').matches) {
+                content.style.width = 'calc(100% - 170px)';
                 content.style.bottom = '80px';
-                logo.style.width = '160px';
-                quote1.style.fontSize = '1.8rem';
-                quote2.style.fontSize = '1.8rem';
-                // quote.style.fontSize = 'calc(1.375rem + 1.5vw)';
-                // middleWrapper.style.right = '25%';
-                // middleWrapper.style.width = '75%';
+                logo.style.width = '100px';
             }
             else {
                 content.style.top = '50%';
                 content.style.transform = 'translateY(-50%)';
-                content.style.width = 'calc(100% - 410px)';
-                logo.style.width = '200px';
-                quote1.style.fontSize = '8rem';
-                quote2.style.fontSize = '8rem';
-                // quote.style.fontSize = '4rem';
-                // middleWrapper.style.left = '30%';
-                // middleWrapper.style.width = '70%';
-                // quote.style.left = '30%';
-                // quote.style.width = '70%';
-                // cta.style.fontSize = '1.5rem';
-            }
-
-            for (let i = 1; i <= 31; i++) {
-                console.log(i % 7);
+                content.style.width = 'calc(100% - 483px)';
+                logo.style.width = '170px';
             }
 
             const head = document.querySelector('head');
@@ -196,10 +170,7 @@
             head.appendChild(animateCSS);
             head.appendChild(animateExpand);
             head.appendChild(customFont);
-            // head.appendChild(googleFonts1);
-            // head.appendChild(googleFonts2);
-            // head.appendChild(googleFonts3);
-            window.document.body.appendChild(overlay);
+            window.parent.document.body.appendChild(overlay);
             overlay.appendChild(prestitial);
             prestitial.addEventListener('animationend', function() {
                 overlay.appendChild(prestitialContent);
@@ -211,50 +182,17 @@
                 content.appendChild(quote2);
                 content.appendChild(logo);
                 content.appendChild(cta);
-                // setTimeout(function() {
-                //     const speed = 90;
-                //     const todaysQuote = getTodaysScheduledQuote();
-                //     let i = 0;
-                //     setInterval(function() {
-                //         if (i < todaysQuote.length) {
-                //             quote.innerHTML += todaysQuote.charAt(i);
-                //             i++;
-                //         }
-                //     }, speed);
-                //     setTimeout(function() {
-                //         prestitialContent.appendChild(middleWrapper);
-                //         middleWrapper.appendChild(logo);
-                //         middleWrapper.appendChild(cta);
-                //     }, (todaysQuote.length) * speed);
-                // }, 5000);
             });
 
-            // setTimeout(function() {overlay.remove()}, 15000);
+            setTimeout(function() {overlay.remove()}, 15000);
 
             function calculateScreenDiagonal() {
-                return Math.ceil(Math.hypot(window.innerWidth, window.innerHeight));
+                return Math.ceil(Math.hypot(window.parent.innerWidth, window.parent.innerHeight));
             }
 
             function getTodaysScheduledQuote(part) {
-                return quotes[(new Date()).getDay() % 7][part];
+                return quotes[((new Date()).getDay() - 1) % 7][part];
             };
-
-            // function typeWriter() {
-            //     const speed = 90;
-            //     const todaysQuote = getTodaysScheduledQuote();
-            //     let i = 0;
-            //     setInterval(function() {
-            //         if (i < todaysQuote.length) {
-            //             quote.innerHTML += todaysQuote.charAt(i);
-            //             i++;
-            //         }
-            //     }, speed);
-            //     setTimeout(function() {
-            //         prestitialContent.appendChild(middleWrapper);
-            //         middleWrapper.appendChild(logo);
-            //         middleWrapper.appendChild(cta);
-            //     }, (todaysQuote.length) * speed);
-            // };
         </script>
     </body>
 </html>
