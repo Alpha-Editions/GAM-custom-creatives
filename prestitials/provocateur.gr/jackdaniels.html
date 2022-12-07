@@ -112,10 +112,15 @@
             logo.style.margin = '0 auto 1rem auto';
             logo.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-3s');
 
+            const quote = document.createElement('div');
+            quote.style.maxWidth = '700px';
+            quote.style.maxHeight = 'calc(100% - 210px)';
+            quote.style.margin = '0 auto';
+
             const quote1 = document.createElement('img');
-            quote1.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/01.png';
-            quote1.style.maxWidth = '700px';
-            quote1.style.width = '%';
+            quote1.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/10.png';
+            // quote1.style.maxWidth = '700px';
+            quote1.style.width = '100%';
             quote1.style.height = 'auto';
             quote1.style.display = 'block';
             quote1.style.margin = '0 auto 1.5rem auto';
@@ -123,7 +128,7 @@
             
             const quote2 = document.createElement('img');
             quote2.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/11.png'
-            quote2.style.maxWidth = '700px';
+            // quote2.style.maxWidth = '700px';
             quote2.style.width = '100%';
             quote2.style.height = 'auto';
             quote2.style.display = 'block';
@@ -179,6 +184,7 @@
                 content.style.top = '50%';
                 content.style.transform = 'translateY(-50%)';
                 content.style.width = 'calc(100% - 483px)';
+                content.style.height = 'calc(100% - 100px)';
                 logo.style.width = '170px';
                 cta.href = 'https://www14.smartadserver.com/h/cc?imgid=29202520&tmstp=[timestamp]&tgt=[reference]';
                 trackingPixel.src = 'https://www14.smartadserver.com/imp?imgid=29202520&tmstp=[timestamp]&tgt=[targeting]';
@@ -201,8 +207,9 @@
                 prestitialContent.appendChild(closeButton);
                 prestitialContent.appendChild(footer);
                 prestitialContent.appendChild(content);
-                content.appendChild(quote1);
-                content.appendChild(quote2);
+                content.appendChild(quote);
+                quote.appendChild(quote1);
+                quote.appendChild(quote2);
                 content.appendChild(logo);
                 content.appendChild(cta);
             });
