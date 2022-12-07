@@ -1,35 +1,42 @@
+<!doctype html>
+<html lang="en" style="width: 100%; height: 100%;">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+    </head>
+    <body style="width: 100%; height: 100%;">
         <link rel="preload" as="image" href="https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/bg-bottle.webp">
         <script>
-            const quotes = [
-                [
-                    'IT\'S YOUR STORY',
-                    'BE THE ONE HOLDING THE PEN'
-                ],
-                [
-                    'MAKE YOUR OWN LABELS',
-                    'PEEL OFF THE REST'
-                ],
-                [
-                    'GOOD TIMES ARE RARE',
-                    'TREAT THEM ACCORDINGLY'
-                ],
-                [
-                    'DANCE',
-                    'LIKE EVERYBODY\'S WATCHING'
-                ],
-                [
-                    'THERE\'S NO PRESENT',
-                    'LIKE THE PRESENT'
-                ],
-                [
-                    'THERE ARE LABELS WE\'RE GIVEN',
-                    'AND THOSE WE MAKE OURSELVES'
-                ],
-                [
-                    'AS FAR AS WE KNOW,',
-                    'TODAY ONLY HAPPENS ONCE'
-                ]
-            ];
+            // const quotes = [
+            //     [
+            //         'IT\'S YOUR STORY',
+            //         'BE THE ONE HOLDING THE PEN'
+            //     ],
+            //     [
+            //         'MAKE YOUR OWN LABELS',
+            //         'PEEL OFF THE REST'
+            //     ],
+            //     [
+            //         'GOOD TIMES ARE RARE',
+            //         'TREAT THEM ACCORDINGLY'
+            //     ],
+            //     [
+            //         'DANCE',
+            //         'LIKE EVERYBODY\'S WATCHING'
+            //     ],
+            //     [
+            //         'THERE\'S NO PRESENT',
+            //         'LIKE THE PRESENT'
+            //     ],
+            //     [
+            //         'THERE ARE LABELS WE\'RE GIVEN',
+            //         'AND THOSE WE MAKE OURSELVES'
+            //     ],
+            //     [
+            //         'AS FAR AS WE KNOW,',
+            //         'TODAY ONLY HAPPENS ONCE'
+            //     ]
+            // ];
 
             const rebootCSS = document.createElement('link');
             rebootCSS.rel = 'stylesheet';
@@ -44,8 +51,8 @@
             const animateExpand = document.createElement('style');
             animateExpand.innerText = '@-webkit-keyframes expand{from{transform:scale(1)}to{transform:scale(' + screenDiagonal + ')}}@keyframes expand{from{transform:scale(1)}to{transform:scale(' + screenDiagonal + ')}}.animate__expand{-webkit-animation-name:expand;animation-name:expand}';
 
-            const customFont = document.createElement('style');
-            customFont.innerText = '@font-face{font-family:jdfont;src:url("https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/jdfont.otf")}';
+            // const customFont = document.createElement('style');
+            // customFont.innerText = '@font-face{font-family:jdfont;src:url("https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/jdfont.otf")}';
 
             const overlay = document.createElement('div');
             overlay.style.display = 'flex';
@@ -54,8 +61,8 @@
             overlay.style.position = 'fixed';
             overlay.style.top = '0';
             overlay.style.left = '0';
-            overlay.style.width = window.parent.parent.innerWidth + 'px';
-            overlay.style.height = window.parent.parent.innerHeight + 'px';
+            overlay.style.width = window.innerWidth + 'px';
+            overlay.style.height = window.innerHeight + 'px';
             overlay.style.zIndex = '99999';
 
             const prestitial = document.createElement('div');
@@ -92,10 +99,11 @@
             closeButton.style.position = 'absolute';
             closeButton.style.top = '1rem';
             closeButton.style.right = '1rem';
-            closeButton.onclick = function() {overlay.remove()};
+            closeButton.style.padding = '0';
+            closeButton.onclick = function() {window.document.body.style.overflow = 'visible'; overlay.remove()};
 
             const logo = document.createElement('img');
-            logo.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/logo.webp';
+            logo.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/logo2.png';
             logo.alt = 'Jack Daniel\'s Old No.7 Brand';
             logo.lang = 'en';
             logo.style.display = 'block';
@@ -104,30 +112,29 @@
             logo.style.margin = '0 auto 1rem auto';
             logo.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-3s');
 
-            const quote1 = document.createElement('span');
+            const quote1 = document.createElement('img');
+            quote1.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/' + getTodaysScheduledQuote(0) + '.png';
+            quote1.style.maxWidth = '700px';
+            quote1.style.width = '100%';
+            quote1.style.height = 'auto';
             quote1.style.display = 'block';
-            quote1.style.fontWeight = '700';
-            quote1.style.color = 'white';
-            quote1.style.fontFamily = 'jdfont';
-            quote1.style.fontSize = '6vw';
-            quote1.innerText = getTodaysScheduledQuote(0);
+            quote1.style.margin = '0 auto 1.5rem auto';
             quote1.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
             
-            const quote2 = document.createElement('span');
+            const quote2 = document.createElement('img');
+            quote2.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/' + getTodaysScheduledQuote(1) + '.png';
+            quote2.style.maxWidth = '700px';
+            quote2.style.width = '100%';
+            quote2.style.height = 'auto';
             quote2.style.display = 'block';
-            quote2.style.fontWeight = '700';
-            quote2.style.color = 'white';
-            quote2.style.marginBottom = '3rem';
-            quote2.style.fontFamily = 'jdfont';
-            quote2.style.fontSize = '6vw';
-            quote2.innerText = getTodaysScheduledQuote(1);
+            quote2.style.margin = '0 auto 2.5rem auto';
             quote2.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-2s');
 
             const content = document.createElement('div');
             content.style.position = 'absolute';
             content.style.padding = '0 1rem';
 
-            const cta = document.createElement('button');
+            const cta = document.createElement('a');
             cta.classList.add('btn', 'animate__animated', 'animate__fadeIn', 'animate__delay-4s');
             cta.innerText = 'Ανακαλύψτε το';
             cta.style.border = 'none'
@@ -135,6 +142,22 @@
             cta.style.backgroundColor = 'white';
             cta.style.padding = '.5rem 1rem';
             cta.style.borderRadius = '50rem';
+            cta.style.display = 'inline-block';
+            cta.style.textDecoration = 'none';
+
+            const trackingPixel = document.createElement('img');
+            trackingPixel.style.width = '1px !important';
+            trackingPixel.style.height = '1px !important';
+            trackingPixel.style.position = 'absolute';
+            trackingPixel.style.top = '0';
+            trackingPixel.style.left = '0';
+
+            const dvTrackingPixel = document.createElement('img');
+            dvTrackingPixel.style.width = '1px !important';
+            dvTrackingPixel.style.height = '1px !important';
+            dvTrackingPixel.style.position = 'absolute';
+            dvTrackingPixel.style.top = '0';
+            dvTrackingPixel.style.left = '0';
 
             const footer = document.createElement('div');
             footer.style.position = 'absolute';
@@ -144,27 +167,36 @@
             footer.style.fontSize = '.8rem';
             footer.innerHTML = '<span style="display: block; border-bottom: 2px solid white; padding: .5rem 1rem; color: gray; text-align: left;">&copy;2022 Jack Daniel\'s</span></div><div style="padding: .5rem 1rem;font-weight: 700; display: flex;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; flex: 1 0 0%; text-align: left;">www.apolafste.ypefthina.gr</a> <span style="color: white; flex: 1 0 0%; text-align: right;">Απολαύστε υπεύθυνα</span> </div>';
 
-            if (window.parent.matchMedia('(max-width: 1200px)').matches) {
+            if (window.matchMedia('(max-width: 1200px)').matches) {
                 content.style.width = 'calc(100% - 170px)';
                 content.style.bottom = '80px';
                 logo.style.width = '100px';
+                cta.href = 'https://www14.smartadserver.com/h/cc?imgid=29202922&tmstp=[timestamp]&tgt=[reference]';
+                trackingPixel.src = 'https://www14.smartadserver.com/imp?imgid=29202922&tmstp=[timestamp]&tgt=[targeting]';
+                dvTrackingPixel.src = 'https://tps.doubleverify.com/visit.jpg?ctx=13468256&cmp=2192914&sid=369067&plc=11342443&adsrv=197&btreg=&btadsrv=&crt=&tagtype=&dvtagver=6.1.img&';
             }
             else {
                 content.style.top = '50%';
                 content.style.transform = 'translateY(-50%)';
                 content.style.width = 'calc(100% - 483px)';
                 logo.style.width = '170px';
+                cta.href = 'https://www14.smartadserver.com/h/cc?imgid=29202520&tmstp=[timestamp]&tgt=[reference]';
+                trackingPixel.src = 'https://www14.smartadserver.com/imp?imgid=29202520&tmstp=[timestamp]&tgt=[targeting]';
+                dvTrackingPixel.src = 'https://tps.doubleverify.com/visit.jpg?ctx=13468256&cmp=2192914&sid=369067&plc=11342397&adsrv=197&btreg=&btadsrv=&crt=&tagtype=&dvtagver=6.1.img&';
             }
 
-            const head = document.querySelector('head');
+            const head = window.document.querySelector('head');
             head.appendChild(rebootCSS);
             head.appendChild(animateCSS);
             head.appendChild(animateExpand);
-            head.appendChild(customFont);
-            window.parent.document.body.appendChild(overlay);
+            // head.appendChild(customFont);
+            window.document.body.style.overflow = 'hidden';
+            window.document.body.appendChild(overlay);
             overlay.appendChild(prestitial);
             prestitial.addEventListener('animationend', function() {
                 overlay.appendChild(prestitialContent);
+                prestitialContent.appendChild(trackingPixel);
+                prestitialContent.appendChild(dvTrackingPixel);
                 prestitialContent.appendChild(bgImg);
                 prestitialContent.appendChild(closeButton);
                 prestitialContent.appendChild(footer);
@@ -175,13 +207,15 @@
                 content.appendChild(cta);
             });
 
-            setTimeout(function() {overlay.remove()}, 15000);
+            // setTimeout(function() {window.document.body.style.overflow = 'visible'; overlay.remove()}, 15000);
 
             function calculateScreenDiagonal() {
-                return Math.ceil(Math.hypot(window.parent.innerWidth, window.parent.innerHeight));
+                return Math.ceil(Math.hypot((document.body.clientWidth + 17), document.body.clientHeight));
             }
 
             function getTodaysScheduledQuote(part) {
-                return quotes[((new Date()).getDay() - 1) % 7][part];
+                return (((new Date()).getDay() - 1) % 7) + '' + part;
             };
         </script>
+    </body>
+</html>
