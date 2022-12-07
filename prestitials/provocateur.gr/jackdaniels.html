@@ -85,7 +85,6 @@
             bgImg.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/bg-bottle.webp';
             bgImg.style.position = 'absolute';
             bgImg.style.top = '0';
-            bgImg.style.right = '0';
             bgImg.style.height = 'calc(100% - 37.19px)';
             bgImg.classList.add('animate__animated', 'animate__fadeInRight');
 
@@ -119,16 +118,14 @@
 
             const quote1 = document.createElement('img');
             quote1.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/10.png';
-            // quote1.style.maxWidth = '700px';
             quote1.style.width = '100%';
             quote1.style.height = 'auto';
             quote1.style.display = 'block';
-            quote1.style.margin = '0 auto 1rem auto';
+            quote1.style.margin = '0 auto 1.5rem auto';
             quote1.classList.add('animate__animated', 'animate__fadeIn', 'animate__delay-1s');
             
             const quote2 = document.createElement('img');
             quote2.src = 'https://alpha-editions.github.io/GAM-custom-creatives/prestitials/provocateur.gr/11.png'
-            // quote2.style.maxWidth = '700px';
             quote2.style.width = '100%';
             quote2.style.height = 'auto';
             quote2.style.display = 'block';
@@ -173,6 +170,7 @@
             footer.innerHTML = '<span style="display: block; border-bottom: 2px solid white; padding: .5rem 1rem; color: gray; text-align: left;">&copy;2022 Jack Daniel\'s</span></div><div style="padding: .5rem 1rem;font-weight: 700; display: flex;"> <a href="https://www.apolafste.ypefthina.gr/" style="color: white !important; flex: 1 0 0%; text-align: left;">www.apolafste.ypefthina.gr</a> <span style="color: white; flex: 1 0 0%; text-align: right;">Απολαύστε υπεύθυνα</span> </div>';
 
             if (window.matchMedia('(max-width: 1200px)').matches) {
+                bgImg.style.right = '0';
                 content.style.width = 'calc(100% - 170px)';
                 content.style.bottom = '80px';
                 logo.style.width = '100px';
@@ -181,6 +179,8 @@
                 dvTrackingPixel.src = 'https://tps.doubleverify.com/visit.jpg?ctx=13468256&cmp=2192914&sid=369067&plc=11342443&adsrv=197&btreg=&btadsrv=&crt=&tagtype=&dvtagver=6.1.img&';
             }
             else {
+                bgImg.style.left = '0';
+                content.style.right = '0';
                 content.style.top = '50%';
                 content.style.transform = 'translateY(-50%)';
                 content.style.width = 'calc(100% - 483px)';
@@ -216,7 +216,14 @@
             // setTimeout(function() {window.document.body.style.overflow = 'visible'; overlay.remove()}, 15000);
 
             function calculateScreenDiagonal() {
-                return Math.ceil(Math.hypot((document.body.clientWidth + 17), document.body.clientHeight));
+                let scrollbarWidth;
+                if (window.matchMedia('(max-width: 1200px)').matches) {
+                    scrollbarWidth = 0;
+                }
+                else {
+                    scrollbarWidth = 17;
+                }
+                return Math.ceil(Math.hypot((document.body.clientWidth + scrollbarWidth), document.body.clientHeight));
             }
 
             function getTodaysScheduledQuote(part) {
